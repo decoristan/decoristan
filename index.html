@@ -1,365 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Balochistan Event Decor</title>
-  <style>
-
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Reels</title>
+<style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: url('wedding-rings-on-a-table-with-red-roses-ai-generated-free-photo.jpg') no-repeat center center/cover;
-      background-attachment: fixed;
-      color: #333;
+        margin: 0;
+        background: white;
+        overflow-x: hidden;
+        font-family: Arial, sans-serif;
     }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 30px;
-      font-size: 12px;
-      font-weight: bold;
-      color: white;
-      background: rgba(0, 198, 255, 0.3);
-      border: 2px solid #00c6ff;
-      text-decoration: none;
-      border-radius: 25px;
-      transition: all 0.3s ease;
-      cursor: pointer;
+    .reel-container {
+        width: 100vw;
+        height: 100vh;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
     }
-
-    .btn:hover {
-      background: #0072ff;
-      border-color: #0072ff;
-      transform: scale(1.08);
-    }
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
-      text-align: center;
-      padding: 20px;
-      position: relative;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.3);
-      z-index: 1;
-    }
-
-    .hero * {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero .logo img {
-      height: 180px;
-      width: auto;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 22px;
-      max-width: 600px;
-    }
-
-    .book-btn {
-      margin-top: 25px;
-    }
-
-    nav {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      z-index: 3;
-    }
-
-    nav a {
-      margin: 0 10px;
-    }
-
-    .services {
-      position: relative;
-      background: url('b2-20.jpg') no-repeat center center/cover;
-      padding: 60px 20px;
-      text-align: center;
-      color: white;
-    }
-
-    .services::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.6); 
-      z-index: 0;
-    }
-
-    .services h2 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-      position: relative;
-      z-index: 1;
-    }
-
-    .service-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 25px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .service-box {
-      background: rgba(255, 255, 255, 0.9);
-      color: #333;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      padding: 20px;
-      width: 250px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-
-    .service-box img {
-      width: 60px;
-      margin-bottom: 15px;
-      transition: transform 0.3s ease;
-    }
-
-    .service-box:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-    }
-
-    .service-box:hover img {
-      transform: rotate(10deg) scale(1.2);
-    }
-
-    .gallery-container img {
-      width: 280px;
-      height: auto;
-      margin: 10px;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-container img:hover {
-      transform: scale(1.05);
-    }
-
-    /* Social Buttons Desktop */
-    .social-buttons {
-      position: fixed;
-      top: 50%;
-      left: 15px;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      z-index: 999;
-    }
-
-    .social-buttons a {
-      width: 50px;
-      height: 50px;
-      background: white;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
-    }
-
-    .social-buttons a:hover {
-      transform: scale(1.2);
-    }
-
-    .social-buttons img {
-      width: 26px;
-      height: 26px;
-    }
-
-    footer {
-      background: #000;
-      color: white;
-      text-align: center;
-      padding: 25px 15px 15px;
-    }
-
-    /* MOBILE OVERRIDES */
-        /* MOBILE OVERRIDES */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 32px;
-      }
-
-      .hero p {
-        font-size: 18px;
-        max-width: 90%;
-      }
-
-      .btn {
-        padding: 8px 18px;
-        font-size: 10px;
-      }
-
-      nav {
-        position: static;
-        text-align: center;
-        margin-top: 20px;
-      }
-
-      nav a {
-        display: inline-block;
-        margin: 5px;
-      }
-
-      .hero .logo img {
-        height: 100px;
-      }
-
-      .service-container {
+    .reel {
+        position: relative;
+        height: 100vh;
+        scroll-snap-align: start;
+        display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-      }
-
-      .service-box {
-        width: 90%;
-        margin: 10px 0;
-      }
-
-      .gallery-container img {
-        width: 90%;
-        height: auto;
-      }
-
-  .social-buttons {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin: 30px auto -30px auto; /* Space above, overlap footer slightly */
-  background: rgba(128, 128, 128, 0.5); /* Transparent grey */
-  padding: 10px;
-  border-radius: 8px;
-  width: fit-content;
-  z-index: 5;
+    }
+ video {
+    aspect-ratio: 9 / 16;
+    height: 90%;
+    width: auto;
+    max-width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    background: black;
 }
 
 
-      }
-
-      .social-buttons a {
-        width: 40px;
-        height: 40px;
-        margin: 0 5px;
-      }
-
-      .social-buttons img {
-        width: 20px;
-        height: 20px;
-      }
+    /* Vertical social buttons */
+    .vertical-actions {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        z-index: 2;
+    }
+    .vertical-actions img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: white;
+        padding: 5px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        transition: background 0.3s;
+    }
+    .vertical-actions img:hover {
+        background: #ddd;
     }
 
-  </style>
+    /* Horizontal nav buttons */
+    .horizontal-actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        padding: 10px;
+        background: rgba(0,0,0,0.6);
+        width: 100%;
+    }
+    .vertical-actions img {
+    width: 50px; /* button size */
+    height: 50px;
+    object-fit: cover; /* keeps icon aspect ratio */
+    border-radius: 50%; /* makes it circular */
+    padding: 10px; /* space inside */
+    background-color: rgba(0, 0, 0, 0.4); /* transparent black background */
+    backdrop-filter: blur(5px); /* optional: blur effect */
+    margin: 8px 0; /* space between buttons */
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.vertical-actions img:hover {
+    transform: scale(1.1); /* zoom effect */
+    background-color: rgba(0, 0, 0, 0.6); /* slightly darker on hover */
+}
+
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .vertical-actions img {
+            width: 40px;
+            height: 40px;
+        }
+        .horizontal-actions img {
+            width: 35px;
+            height: 35px;
+        }
+ 	
+    }
+</style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav>
-  <a href="booking.html" class="btn">Book</a>
-  <a href="#gallery" class="btn">Gallery</a>
-  <a href="#services" class="btn">Services</a>
-</nav>
+<div class="reel-container">
 
-<!-- Hero Section -->
-<div class="hero">
-  <div class="logo">
-    <img src="1logo-white.png" alt="Balochistan Event Decor Logo">
-  </div>
-  <h1>Balochistan Event Decor</h1>
-  <p>Transforming celebrations into unforgettable memories – Weddings, Birthdays, Anniversaries, and more!</p>
-  <a href="booking.html" class="btn book-btn">Book Now</a>
+    <!-- Reel 1 -->
+    <div class="reel">
+        <video src="videos/r1.mp4" autoplay loop playsinline></video>
+
+        <!-- Vertical social buttons -->
+        <div class="vertical-actions">
+            <img src="icons/logtk.jpg" alt="Logo" onclick="window.location.href='https://www.tiktok.com/@balochistan_event_decor'">
+            
+            <img src="icons/tiktok.png" alt="TikTok" onclick="window.open('https://vt.tiktok.com/ZSSGgQYB1/', '_blank')">
+            <img src="icons/share.png" alt="Share" onclick="shareVideo('https://vt.tiktok.com/ZSSGgQYB1/')">
+        </div>
+
+        <!-- Horizontal nav buttons -->
+        <div class="horizontal-actions">
+            <img src="icons/home (2).png" alt="Home" onclick="window.location.href='index.html'">
+            <img src="icons/book.png" alt="Book" onclick="window.location.href='booking.html'">
+            <img src="icons/wht.png" alt="Contact" onclick="window.location.href='https://wa.me/923218547399'">
+            <img src="icons/free-gallery.webp" alt="Gallery" onclick="window.location.href='gallary.html'">
+        </div>
+    </div>
+
+    <!-- Reel 2 -->
+    <div class="reel">
+        <video src="videos/r2.mp4" autoplay loop playsinline></video>
+
+        <!-- Vertical social buttons -->
+        <div class="vertical-actions">
+            <img src="icons/logtk.jpg" alt="Logo" onclick="window.location.href='https://www.tiktok.com/@balochistan_event_decor'">
+            <img src="icons/tiktok.png" alt="TikTok" onclick="window.open('https://vt.tiktok.com/ZSSGg7yGv/', '_blank')">
+            <img src="icons/share.png" alt="Share" onclick="shareVideo('https://vt.tiktok.com/ZSSGg7yGv/')">
+        </div>
+
+        <!-- Horizontal nav buttons -->
+        <div class="horizontal-actions">
+            <img src="icons/home (2).png" alt="Home" onclick="window.location.href='index.html'">
+            <img src="icons/book.png" alt="Book" onclick="window.location.href='booking.html'">
+            <img src="icons/wht.png" alt="Contact" onclick="window.location.href='https://wa.me/923218547399'">
+            <img src="icons/free-gallery.webp" alt="Gallery" onclick="window.location.href='gallary.html'">
+        </div>
+    </div>
+
+</div>
+ <!-- Reel 3 -->
+    <div class="reel">
+        <video src="videos/r3.mp4" autoplay loop playsinline></video>
+
+        <!-- Vertical social buttons -->
+        <div class="vertical-actions">
+            <img src="icons/logtk.jpg" alt="Logo" onclick="window.location.href='https://www.tiktok.com/@balochistan_event_decor'">
+            <img src="icons/tiktok.png" alt="TikTok" onclick="window.open('https://vt.tiktok.com/ZSSGpe6tD/', '_blank')">
+            <img src="icons/share.png" alt="Share" onclick="shareVideo('https://vt.tiktok.com/ZSSGpe6tD/')">
+        </div>
+
+        <!-- Horizontal nav buttons -->
+        <div class="horizontal-actions">
+            <img src="icons/home (2).png" alt="Home" onclick="window.location.href='index.html'">
+            <img src="icons/book.png" alt="Book" onclick="window.location.href='booking.html'">
+            <img src="icons/wht.png" alt="Contact" onclick="window.location.href='https://wa.me/923218547399'">
+            <img src="icons/free-gallery.webp" alt="Gallery" onclick="window.location.href='gallary.html'">
+        </div>
+    </div>
+
 </div>
 
-<!-- Services Section -->
-<section class="services" id="services">
-  <h2>Our Services</h2>
-  <div class="service-container">
-    <div class="service-box">
-      <img src="wed.jpeg" alt="Wedding">
-      <h3>Wedding Decor</h3>
-      <p>Elegant wedding stages, floral arrangements, and themed decorations.</p>
-    </div>
-    <div class="service-box">
-      <img src="happy-birthday.png" alt="Birthday">
-      <h3>Birthday Parties</h3>
-      <p>Fun and colorful decorations for all age groups.</p>
-    </div>
-    <div class="service-box">
-      <img src="ring.jpg" alt="Engagement">
-      <h3>Engagement</h3>
-      <p>Romantic décor to make your engagement unforgettable.</p>
-    </div>
-  </div>
-</section>
 
-<!-- Gallery Section -->
-<section class="gallery" id="gallery" style="background: url('210605_ld_L_00184_highrez-1.jpg') no-repeat center/cover; padding: 60px 20px; color: white; text-align: center;">
-  <div style="background: rgba(0,0,0,0.5); display:inline-block; padding:20px; border-radius:10px;">
-    <h2>Event Gallery</h2>
-    <p>Take a look at some of our recent work.</p>
-    <div class="gallery-container">
-      <img src="WhatsApp Image 2025-07-08 at 19.09.28_7164218d.jpg" alt="Event 1">
-      <img src="WhatsApp Image 2025-07-08 at 19.10.53_612daf97.jpg" alt="Event 2">
-      <img src="A.jpg" alt="Event 3">
-    </div>
-    <br>
-    <a href="gallary.html" class="btn see-more-btn">See More</a>
-  </div>
-</section>
+<script>
+    const videos = document.querySelectorAll("video");
 
-<!-- Social Buttons (Desktop left, Mobile left) -->
-<div class="social-buttons">
-  <a href="https://www.tiktok.com/@balochistan_event_decor" target="_blank"><img src="tiktok-l.webp" alt="TikTok"></a>
-  <a href="https://www.instagram.com/balochistan_event_decor" target="_blank"><img src="instagram-logo-vector_768467-330.avif" alt="Instagram"></a>
-  <a href="https://wa.me/923218547399" target="_blank"><img src="wht.png" alt="WhatsApp"></a>
-  <a href="https://www.google.com/maps?q=26.000931,63.034569" target="_blank"><img src="google-maps-icon-2020-logo-png_seeklogo-368992.png" alt="Google Map"></a>
-</div>
+    videos.forEach(video => {
+        video.addEventListener("click", () => {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+    });
 
-<!-- Footer -->
-<footer>
-  &copy; 2025 Balochistan Event Decor. All rights reserved.
-</footer>
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.play();
+            } else {
+                entry.target.pause();
+            }
+        });
+    }, { threshold: 0.6 });
+
+    videos.forEach(video => observer.observe(video));
+
+    function shareVideo(url) {
+        if (navigator.share) {
+            navigator.share({ title: "Check this out", url: url });
+        } else {
+            prompt("Copy this link:", url);
+        }
+    }
+</script>
 
 </body>
 </html>
