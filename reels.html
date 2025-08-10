@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Reels</title>
+<style>
+    body {
+        margin: 0;
+        background: white;
+        overflow-x: hidden;
+        font-family: Arial, sans-serif;
+    }
+    .reel-container {
+        width: 100vw;
+        height: 100vh;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+    }
+    .reel {
+        position: relative;
+        height: 100vh;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+ video {
+    aspect-ratio: 9 / 16;
+    height: 90%;
+    width: auto;
+    max-width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    background: black;
+}
+
+
+    /* Vertical social buttons */
+    .vertical-actions {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        z-index: 2;
+    }
+    .vertical-actions img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: white;
+        padding: 5px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        transition: background 0.3s;
+    }
+    .vertical-actions img:hover {
+        background: #ddd;
+    }
+
+    /* Horizontal nav buttons */
+    .horizontal-actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        padding: 10px;
+        background: rgba(0,0,0,0.6);
+        width: 100%;
+    }
+    .vertical-actions img {
+    width: 50px; /* button size */
+    height: 50px;
+    object-fit: cover; /* keeps icon aspect ratio */
+    border-radius: 50%; /* makes it circular */
+    padding: 10px; /* space inside */
+    background-color: rgba(0, 0, 0, 0.4); /* transparent black background */
+    backdrop-filter: blur(5px); /* optional: blur effect */
+    margin: 8px 0; /* space between buttons */
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.vertical-actions img:hover {
+    transform: scale(1.1); /* zoom effect */
+    background-color: rgba(0, 0, 0, 0.6); /* slightly darker on hover */
+}
+
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .vertical-actions img {
+            width: 40px;
+            height: 40px;
+        }
+        .horizontal-actions img {
+            width: 35px;
+            height: 35px;
+        }
+ 	
+    }
+</style>
+</head>
+<body>
+
+<div class="reel-container">
+
+    <!-- Reel 1 -->
+    <div class="reel">
+        <video src="videos/r1.mp4" autoplay loop playsinline></video>
+
+        <!-- Vertical social buttons -->
+        <div class="vertical-actions">
+            <img src="icons/logtk.jpg" alt="Logo" onclick="window.location.href='https://www.tiktok.com/@balochistan_event_decor'">
+            
+            <img src="icons/tiktok.png" alt="TikTok" onclick="window.open('https://vt.tiktok.com/ZSSGgQYB1/', '_blank')">
+            <img src="icons/share.png" alt="Share" onclick="shareVideo('https://vt.tiktok.com/ZSSGgQYB1/')">
+        </div>
+
+        <!-- Horizontal nav buttons -->
+        <div class="horizontal-actions">
+            <img src="icons/home (2).png" alt="Home" onclick="window.location.href='index.html'">
+            <img src="icons/book.png" alt="Book" onclick="window.location.href='booking.html'">
+            <img src="icons/wht.png" alt="Contact" onclick="window.location.href='https://wa.me/923218547399'">
+            <img src="icons/free-gallery.webp" alt="Gallery" onclick="window.location.href='gallary.html'">
+        </div>
+    </div>
+
+    <!-- Reel 2 -->
+    <div class="reel">
+        <video src="videos/r2.mp4" autoplay loop playsinline></video>
+
+        <!-- Vertical social buttons -->
+        <div class="vertical-actions">
+            <img src="icons/logtk.jpg" alt="Logo" onclick="window.location.href='https://www.tiktok.com/@balochistan_event_decor'">
+            <img src="icons/tiktok.png" alt="TikTok" onclick="window.open('https://vt.tiktok.com/ZSSGg7yGv/', '_blank')">
+            <img src="icons/share.png" alt="Share" onclick="shareVideo('https://vt.tiktok.com/ZSSGg7yGv/')">
+        </div>
+
+        <!-- Horizontal nav buttons -->
+        <div class="horizontal-actions">
+            <img src="icons/home (2).png" alt="Home" onclick="window.location.href='index.html'">
+            <img src="icons/book.png" alt="Book" onclick="window.location.href='booking.html'">
+            <img src="icons/wht.png" alt="Contact" onclick="window.location.href='https://wa.me/923218547399'">
+            <img src="icons/free-gallery.webp" alt="Gallery" onclick="window.location.href='gallary.html'">
+        </div>
+    </div>
+
+</div>
+ <!-- Reel 3 -->
+    <div class="reel">
+        <video src="videos/r3.mp4" autoplay loop playsinline></video>
+
+        <!-- Vertical social buttons -->
+        <div class="vertical-actions">
+            <img src="icons/logtk.jpg" alt="Logo" onclick="window.location.href='https://www.tiktok.com/@balochistan_event_decor'">
+            <img src="icons/tiktok.png" alt="TikTok" onclick="window.open('https://vt.tiktok.com/ZSSGpe6tD/', '_blank')">
+            <img src="icons/share.png" alt="Share" onclick="shareVideo('https://vt.tiktok.com/ZSSGpe6tD/')">
+        </div>
+
+        <!-- Horizontal nav buttons -->
+        <div class="horizontal-actions">
+            <img src="icons/home (2).png" alt="Home" onclick="window.location.href='index.html'">
+            <img src="icons/book.png" alt="Book" onclick="window.location.href='booking.html'">
+            <img src="icons/wht.png" alt="Contact" onclick="window.location.href='https://wa.me/923218547399'">
+            <img src="icons/free-gallery.webp" alt="Gallery" onclick="window.location.href='gallary.html'">
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    const videos = document.querySelectorAll("video");
+
+    videos.forEach(video => {
+        video.addEventListener("click", () => {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.play();
+            } else {
+                entry.target.pause();
+            }
+        });
+    }, { threshold: 0.6 });
+
+    videos.forEach(video => observer.observe(video));
+
+    function shareVideo(url) {
+        if (navigator.share) {
+            navigator.share({ title: "Check this out", url: url });
+        } else {
+            prompt("Copy this link:", url);
+        }
+    }
+</script>
+
+</body>
+</html>
