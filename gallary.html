@@ -55,12 +55,27 @@
     }
 
     .gallery h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1;
-      color: #000;
-    }
+  font-size: 32px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  color: #000; /* core black text */
+  text-shadow:
+    /* thin white highlight */
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff,
+
+    /* thicker red outline */
+    -2px -2px 0 #ff0000,
+    2px -2px 0 #ff0000,
+    -2px 2px 0 #ff0000,
+    2px 2px 0 #ff0000,
+
+    /* soft red glow */
+    0 0 8px #ff0000;
+}
 
     .gallery-images {
       display: flex;
@@ -97,7 +112,8 @@
     <h1>Balochistan Event Decor</h1>
     <nav>
       <a href="index.html">Home</a>
-	<a href="booking.html">Booking</a>
+      <a href="booking.html">Booking</a>
+      <a href="reels.html" class="btn">Reels</a>
      <a href="https://wa.me/923218547399" target="_blank">Contact</a>
   	
     </nav>
