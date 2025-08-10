@@ -54,13 +54,28 @@
       z-index: 0;
     }
 
-    .booking-section h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1;
-      color: #000;
-    }
+.booking-section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  color: #000; /* core black text */
+  text-shadow:
+    /* thin white highlight */
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff,
+
+    /* thicker red outline */
+    -2px -2px 0 #ff0000,
+    2px -2px 0 #ff0000,
+    -2px 2px 0 #ff0000,
+    2px 2px 0 #ff0000,
+
+    /* soft red glow */
+    0 0 8px #ff0000;
+}
 
     .booking-form {
       max-width: 500px;
@@ -74,15 +89,23 @@
     }
 
     .booking-form input,
-    .booking-form select,
     .booking-form button {
-      width: 100%;
+      width: 98%;
       padding: 10px;
       margin: 8px 0;
       font-size: 16px;
       border: 1px solid #ccc;
       border-radius: 6px;
     }
+.booking-form select{
+width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+}
+
 
     .booking-form button {
       background: #000;
@@ -102,14 +125,37 @@
       background: rgba(0,0,0,0.85);
       color: white;
     }
+    @media (max-width: 480px) {
+    header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 5px 10px;
+    }
+
+    .booking-section h2 {
+      font-size: 24px;
+    }
+  }
+</style>
   </style>
+
 </head>
 <body>
 
   <header>
+
     <h1>Balochistan Event Decor</h1>
     <nav>
       <a href="index.html">Home</a>
+      <a href="reels.html" class="btn">Reels</a>
       <a href="gallary.html">Gallery</a>
       <a href="https://wa.me/923218547399" target="_blank">Contact</a>
     </nav>
@@ -118,7 +164,7 @@
   <section class="booking-section">
     <h2>Book Your Event</h2>
     <form class="booking-form" action="https://formspree.io/f/xnnzzvze" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="text" name="name" placeholder="Your Name" pattern="^[A-Za-z ]{1,60}$" title="Please enter a valid name: letters only" required>
       
       <select name="event_type" required>
         <option value="">Select Event Type</option>
@@ -129,8 +175,13 @@
       </select>
 
       <input type="text" name="location" placeholder="Event Location" required>
-      <input type="date" name="event_date" required>
-      <input type="tel" name="contact_number" placeholder="Contact Number" required>
+     <input type="date" id="dateInput" >
+
+      <script>
+       const today = new Date().toISOString().split("T")[0];
+       document.getElementById("dateInput").min = today;
+       </script>
+      <input type="tel" name="contact_number" placeholder="Contact Number"  pattern="(\+92[0-9]{10}|0[0-9]{10})" title="Enter number like 03212345678 or +923212345678" required>
       
       <button type="submit">Book Now</button>
     </form>
