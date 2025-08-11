@@ -70,15 +70,12 @@
 </main>
 
 <script>
-     document.querySelectorAll(".reel").forEach(reel => {
-        const videoEl = reel.querySelector("video");
-        videoEl.src = reel.dataset.video;
-        videoEl.muted = false; // Unmute
-    });
+    
     // Load video sources dynamically
     document.querySelectorAll(".reel").forEach(reel => {
         const videoEl = reel.querySelector("video");
         videoEl.src = reel.dataset.video;
+        videoEl.muted = false; // Unmute
     });
 
     // Click to pause/play
@@ -113,4 +110,5 @@
 
 </body>
 </html>
+
 
