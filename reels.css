@@ -1,0 +1,139 @@
+/* ================================
+   TikTok-like Mobile Feed CSS
+   ================================ */
+
+/* Variables for easy customization */
+:root {
+    --bg-color: #000;
+    --text-color: #fff;
+    --action-size: 50px;
+    --nav-height: 60px;
+    --btn-bg: rgba(255, 255, 255, 0.1); /* transparent vertical buttons */
+    --btn-bg-hover: rgba(255, 255, 255, 0.25);
+    --btn-border: rgba(255, 255, 255, 0.15);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    overflow-x: hidden;
+}
+
+/* Main feed container */
+main {
+    display: flex;
+    flex-direction: column;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+/* Each reel section */
+.reel {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-color);
+}
+
+/* Video full screen */
+.reel video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Vertical actions (right side) */
+.vertical-actions {
+    position: absolute;
+    right: 10px;
+    bottom: calc(var(--nav-height) + 20px);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 2;
+}
+
+.vertical-actions img {
+    width: var(--action-size);
+    height: var(--action-size);
+    border-radius: 50%;
+    background: var(--btn-bg);
+    border: 2px solid var(--btn-border);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    padding: 8px;
+    cursor: pointer;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.vertical-actions img:hover {
+    background: var(--btn-bg-hover);
+    transform: scale(1.15);
+}
+
+/* Bottom navigation */
+.horizontal-actions {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 3;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.horizontal-actions img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 6px;
+    transition: transform 0.25s ease, background 0.25s ease;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.horizontal-actions img:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0s !important;
+        transition-duration: 0s !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Desktop breakpoint */
+@media (min-width: 768px) {
+    .reel video {
+        max-width: 450px;
+        border-radius: 10px;
+    }
+    .vertical-actions {
+        right: calc(50% - 225px - 60px);
+    }
+}
