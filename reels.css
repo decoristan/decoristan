@@ -7,6 +7,7 @@
     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Watch text label above bottom buttons */
 .watch-text {
     position: absolute;
     bottom: 60px; /* Just above horizontal buttons */
@@ -61,12 +62,12 @@ main {
     object-fit: cover;
 }
 
-/* Right-side vertical action buttons */
+/* Right-side vertical action buttons - Mobile */
 .vertical-actions {
     position: absolute;
     right: 10px;
-    top: 45%; /* was 50% — moved slightly higher */
-    transform: translateY(-50%);
+    bottom: 120px; /* above horizontal bar */
+    transform: none; /* no vertical centering */
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -76,7 +77,7 @@ main {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15); /* more transparent */
+    background: rgba(255, 255, 255, 0.15);
     padding: 8px;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -86,10 +87,10 @@ main {
     background: rgba(255, 255, 255, 0.25);
 }
 
-/* Keep buttons higher on short devices */
+/* Slight adjustment for very short screens */
 @media (max-height: 700px) {
     .vertical-actions {
-        top: 40%; /* Push higher for short screens */
+        bottom: 100px;
     }
 }
 
@@ -97,9 +98,9 @@ main {
 .horizontal-actions img {
     background-color: white;
     border-radius: 50%;
-    padding: 8px; /* space inside circle */
+    padding: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    width: 40px; /* size of icon */
+    width: 40px;
     height: 40px;
     object-fit: contain;
     cursor: pointer;
@@ -147,6 +148,13 @@ main {
     .desktop-left-actions img:hover {
         background: rgba(255, 255, 255, 0.25);
         transform: scale(1.1);
+    }
+
+    /* Reset vertical actions for desktop */
+    .vertical-actions {
+        top: 50%;
+        transform: translateY(-50%);
+        bottom: auto;
     }
 }
 
