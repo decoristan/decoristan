@@ -1,21 +1,29 @@
-/* ================================
-   TikTok-like Mobile Feed CSS
-   ================================ */
-
-/* Variables for easy customization */
 :root {
     --bg-color: #000;
+    --overlay-color: rgba(0, 0, 0, 0.4);
+    --action-bg: rgba(255, 255, 255, 0.15);
+    --action-bg-hover: rgba(255, 255, 255, 0.25);
     --text-color: #fff;
-    --action-size: 50px;
-    --nav-height: 60px;
-    --btn-bg: rgba(255, 255, 255, 0.1); /* transparent vertical buttons */
-    --btn-bg-hover: rgba(255, 255, 255, 0.25);
-    --btn-border: rgba(255, 255, 255, 0.15);
-    --shadow-color: rgba(0, 0, 0, 0.3);
-    --font-family: 'Segoe UI', Roboto, sans-serif;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Base Reset */
+.watch-text {
+    position: absolute;
+    bottom: 60px; /* Just above horizontal buttons */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 5px 12px;
+    border-radius: 8px;
+    z-index: 20;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -23,117 +31,130 @@
 }
 
 body {
-    background: var(--bg-color);
-    color: var(--text-color);
+    background-color: var(--bg-color);
     font-family: var(--font-family);
     overflow-x: hidden;
 }
 
-/* Main feed container */
+/* Mobile-first full screen reels */
 main {
-    display: flex;
-    flex-direction: column;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     height: 100vh;
 }
 
-/* Each reel section */
 .reel {
     position: relative;
-    min-height: 100vh;
+    height: 100vh;
     width: 100%;
     scroll-snap-align: start;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     background: var(--bg-color);
 }
 
-/* Video full screen */
 .reel video {
     height: 100%;
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     object-fit: cover;
 }
 
-/* Vertical actions (right side) */
+/* Right-side vertical action buttons */
 .vertical-actions {
     position: absolute;
     right: 10px;
-    bottom: calc(var(--nav-height) + 20px);
+    top: 45%; /* was 50% — moved slightly higher */
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    z-index: 2;
+    gap: 15px;
 }
 
 .vertical-actions img {
-    width: var(--action-size);
-    height: var(--action-size);
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    background: var(--btn-bg);
-    border: 2px solid var(--btn-border);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 4px 12px var(--shadow-color);
+    background: rgba(255, 255, 255, 0.15); /* more transparent */
     padding: 8px;
     cursor: pointer;
-    transition: transform 0.25s ease, background 0.25s ease;
+    transition: background 0.3s ease;
 }
 
 .vertical-actions img:hover {
-    background: var(--btn-bg-hover);
-    transform: scale(1.15);
+    background: rgba(255, 255, 255, 0.25);
 }
 
-/* Bottom navigation */
-.horizontal-actions {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: var(--nav-height);
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(6px);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 3;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+/* Keep buttons higher on short devices */
+@media (max-height: 700px) {
+    .vertical-actions {
+        top: 40%; /* Push higher for short screens */
+    }
 }
 
+/* Bottom horizontal navigation - MOBILE */
 .horizontal-actions img {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
+    background-color: white;
     border-radius: 50%;
-    padding: 6px;
-    transition: transform 0.25s ease, background 0.25s ease;
-    background: rgba(255, 255, 255, 0.15);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 8px; /* space inside circle */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    width: 40px; /* size of icon */
+    height: 40px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .horizontal-actions img:hover {
-    background: rgba(255, 255, 255, 0.3);
     transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
-/* Accessibility: reduced motion */
+/* Desktop adjustments */
+@media (min-width: 768px) {
+    body {
+        background: url('wedding-rings-on-a-table-with-red-roses-ai-generated-free-photo.jpg') center center / cover no-repeat fixed;
+    }
+
+    /* Hide mobile bottom bar */
+    .horizontal-actions {
+        display: none;
+    }
+
+    /* Desktop left-side larger buttons */
+    .desktop-left-actions {
+        position: fixed;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        z-index: 10;
+    }
+
+    .desktop-left-actions img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 12px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .desktop-left-actions img:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: scale(1.1);
+    }
+}
+
+/* Accessibility for reduced motion */
 @media (prefers-reduced-motion: reduce) {
     * {
-        animation-duration: 0s !important;
-        transition-duration: 0s !important;
         scroll-behavior: auto !important;
-    }
-}
-
-/* Desktop breakpoint */
-@media (min-width: 768px) {
-    .reel video {
-        max-width: 450px;
-        border-radius: 10px;
-    }
-    .vertical-actions {
-        right: calc(50% - 225px - 60px);
+        transition: none !important;
+        animation: none !important;
     }
 }
