@@ -61,7 +61,7 @@ main {
     position: absolute;
     top: 50%;
     right: 10px;
-    transform: translateY(-50%);
+    transform: translateY(-40%);
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -137,3 +137,4 @@ main {
         right: calc(50% - 225px - 60px);
     }
 }
+
