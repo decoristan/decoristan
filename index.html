@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self';">
+ <meta name="author" content="Shayhaq" />
+<meta name="description" content="Professional event decoration services in Turbat, Makran & Gwadar. Weddings, birthdays, engagements — bespoke themes, floral arrangements, stage setups and full planning. Contact YourBusinessName for packages & quotes.">
+<meta name="keywords" content="event decoration Turbat, wedding decorator Turbat, birthday decoration Makran, engagement decoration Gwadar, Turbat event planner, Makran wedding decor, Gwadar party decorator">
+
   <title>Balochistan Event Decor</title>
   <style>
 
@@ -23,26 +28,8 @@ body {
   color: #333;
 }
 
-/* BUTTONS */
-.btn {
-  display: inline-block;
-  padding: 12px 30px;
-  font-size: 12px;
-  font-weight: bold;
-  color: white;
-  background: rgba(0, 198, 255, 0.8);
-  border: 2px solid #00c6ff;
-  text-decoration: none;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
 
-.btn:hover {
-  background: #0072ff;
-  border-color: #0072ff;
-  transform: scale(1.08);
-}
+
 
 /* HERO SECTION */
 .hero {
@@ -88,6 +75,41 @@ body {
   max-width: 600px;
 }
 
+
+/* ----- HEADER NAVIGATION STYLING (HEBOX) ----- */
+
+/* Main header container with navy background */
+.hebox {
+  background-color: #01003c; /* Navy blue from your image */
+  padding: 30px 0; /* Space above and below nav links */
+  text-align: center; /* Center the nav horizontally */
+  width: 100%; /* Make sure it spans the full page width */
+}
+
+/* Keep nav links together in one line */
+.hebox nav {
+  display: inline-block; /* Prevents full-width block behavior */
+}
+
+/* Default link/button style inside the header */
+.hebox .btns {
+  color: #ffffff; /* White text by default */
+  text-decoration: none; /* Remove underline from links */
+  padding: 10px 15px; /* Space around text */
+  font-size: 14px; /* Text size */
+  font-weight: bold; /* Bold text for emphasis */
+  background: none; /* No background behind text */
+  border: none; /* Remove borders if any */
+  transition: color 0.3s ease; /* Smooth color change on hover */
+}
+
+/* Hover effect for gold text */
+.hebox .btns:hover {
+  color: #d4af37; /* Gold text color when hovered */
+}
+
+
+
 .book-btn {
   margin-top: 25px;
 }
@@ -107,7 +129,7 @@ nav a {
 /* SERVICES SECTION */
 .services {
   position: relative;
-  background: url('b2-20.jpg') no-repeat center center/cover;
+  background: #000080 no-repeat center center/cover;
   padding: 60px 20px;
   text-align: center;
   color: white;
@@ -227,35 +249,201 @@ footer {
   text-align: center;
   padding: 25px 15px 15px;
 }
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background: rgba(0, 198, 255, 0.8);
+  border: 2px solid #00c6ff;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #0072ff;
+  border-color: #0072ff;
+  transform: scale(1.08);
+}
+.about {
+  background: linear-gradient(135deg, #f8f8f8, #ffffff);
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.about p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Hover effect for heading */
+.about h2:hover {
+  color: #d4a017; /* Gold accent */
+  transition: color 0.3s ease;
+}
+.contactform {
+  position: relative;
+  background: #000080 no-repeat center center/cover; /* Dark navy background */
+  padding: 60px 20px;
+  text-align: center;
+  color: white; /* Default text color */
+}
+
+/* Dark overlay for contrast */
+.contactform::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6); 
+  z-index: 0;
+}
+
+/* Heading style */
+.contactform h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* Subheading paragraph */
+.contactform p {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+  color: #e0e0e0;
+}
+
+/* Form container */
+.contactform form {
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+  color: #333;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  max-width: 400px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect on the whole form */
+.contactform form:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+/* Input & textarea styling */
+.contactform input,
+.contactform textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 5px;
+  font-size: 1rem;
+  background: #fafafa;
+  transition: border 0.3s ease, background 0.3s ease;
+}
+
+/* Input focus effect */
+.contactform input:focus,
+.contactform textarea:focus {
+  border-color: #d4a017; /* Gold border */
+  background: #fff;
+  outline: none;
+}
+.faq {
+        background-color: #000033; /* Navy blue */
+        padding: 20px;
+        text-align: center;
+    }
+
+    .faq h3 {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); /* similar glow */
+    }
+.footer a {
+  text-decoration: none;        /* Remove underline */
+  font-weight: bold;            /* Make bold */
+  color: #d4af37;               /* Gold-ish color */
+}
+
+.footer a:hover {
+  color: #ffd700;                /* Slightly brighter gold on hover */
+}
+
+
+  
 @media (max-width: 768px) {
+ .btn-box nav {
+    gap: 8px;                   /* less space between buttons */
+  }
+
+  .btn {
+    font-size: 12px;            /* slightly smaller text for fit */
+    padding: 6px 8px;          /* adjust size for small screens */
+  }
   .social-buttons {
     left: 3px; /* moved closer to screen edge */
   }
 .social-buttons a {
-    width: 37px;  /* Smaller size for mobile */
-    height: 37px;
+    width: 35px;  /* Smaller size for mobile */
+    height: 35px;
     background: rgba(255, 255, 255, 0.5);
     font-size: 18px;
-    margin: 1px ;
+    margin: 0px ;
   }
 
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+  .hebox {
+    padding: 0px 0; /* Space above and below nav links */
+   width: 100%; /* Make sure it spans the full page width */
+}
+.hebox .btns {
+  padding: 6px 6px; /* Space around text */
+  font-size: 13px; /* Text size */
+ 
+}
+
+
+
   .hero h1 {
-    font-size: 26px;
+    font-size: 23px;
   }
 
   .hero p {
     font-size: 18px;
-    max-width: 90%;
+    max-width: 80%;
   }
 
-  .btn {
-    padding: 8px 18px;
-    font-size: 10px;
-  }
+ 
 
   nav {
     position: static;
@@ -269,7 +457,7 @@ footer {
   }
 
   .hero .logo img {
-    height: 120px;
+    height: 124px;
   }
 
   .service-container {
@@ -286,24 +474,56 @@ footer {
     width: 90%;
     height: auto;
   }
+.about h2 {
+    font-size: 1rem;
+  }
+  .about p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+.contactform {
+    padding: 40px 15px; /* Reduce padding on small screens */
+  }
+  .contactform h2 {
+    font-size: 1.5rem; /* Smaller title */
+
+  }
+ .contactform input,
+  .contactform textarea {
+    padding: 8px; /* Slightly smaller padding */
+    font-size: 0.75rem; /* Slightly smaller font */
+  }
+ .faq h3 {
+       
+        font-size: 15px;
+}
+.footer {
+    font-size: 0.7rem; /* smaller text for mobile */
+  }
 }
 
 
 
   </style>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
+
 <body>
 
 <!-- Navbar -->
-<div class="btn-box">
+<header>
+<div class="hebox">
 <nav>
-  <a href="booking.html" class="btn">Book</a>
-  <a href="reels.html" class="btn">Reels</a>
-  <a href="#gallery" class="btn">Gallery</a>
-  <a href="#services" class="btn">Services</a>
+  <a href="booking.html" class="btns">Book</a>
+  <a href="reels.html" class="btns">Reels</a>
+  <a href="#gallery" class="btns">Gallery</a>
+  <a href="#services" class="btns">Services</a>
+  <a href="#about" class="btns">About</a>
  
 </nav>
 </div>
+<header>
 
 <!-- Hero Section -->
 <div class="hero">
@@ -311,7 +531,7 @@ footer {
     <img src="1logo-white.png" alt="Balochistan Event Decor Logo">
   </div>
   <h1>Balochistan Event Decor</h1>
-  <p>Transforming celebrations into unforgettable memories – Weddings, Birthdays, Anniversaries, and more!</p>
+  <p>Transforming celebrations into unforgettable memories!</p>
   <a href="booking.html" class="btn book-btn">Book Now</a>
 </div>
 
@@ -336,6 +556,10 @@ footer {
     </div>
   </div>
 </section>
+<div class=faq>
+<a href="FAQ.html"><h3>Frequently Asked Questions</h3><a>
+</div>
+ 
 
 <!-- Gallery Section -->
 <section class="gallery" id="gallery" style="background: url('210605_ld_L_00184_highrez-1.jpg') no-repeat center/cover; padding: 60px 20px; color: white; text-align: center;">
@@ -359,12 +583,76 @@ footer {
   <a href="https://wa.me/923218547399" target="_blank"><img src="wht.png" alt="WhatsApp"></a>
   <a href="https://www.google.com/maps?q=26.000931,63.034569" target="_blank"><img src="google-maps-icon-2020-logo-png_seeklogo-368992.png" alt="Google Map"></a>
 </div>
+<div class="about">
+<section id="testimonials" style="padding: 60px 20px; background:#f9f9f9; text-align:center;">
+  <h2>What Our Clients Say</h2>
+  <blockquote>"Balochistan Event turned our celebration into pure magic! The decorations were elegant, creative, and full of life. Every detail—from the stage to the floral arrangements—was perfect. Highly recommended for anyone who wants their event to feel truly special."</blockquote>
+</section>
+
+
+<section id="about" style="padding: 60px 20px; text-align:center;">
+  <h2>About Us</h2>
+  <p>At Balochistan Event Decor, we specialize in creating unforgettable memories by transforming every celebration into a magical experience. With years of experience, a passionate team, and attention to detail, we ensure your special day shines.</p>
+</section>
+</div> 
+
+<div class="contactform">
+<section id="contact" style="padding: 60px 20px; text-align:center;">
+  <h2>Contact Us</h2>
+  <p>Have questions or ready to book? Reach out!</p>
+  <form action="https://formspree.io/f/xnnzzvze" method="post" style="max-width:400px; margin:auto;">
+    <input type="text" name="name" placeholder="Your Name" pattern="^[A-Za-z ]{1,60}$" required style="width:100%; padding:8px; margin:8px 0;">
+    <input type="email" name="email" placeholder="Your Email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+ required style="width:100%; padding:8px; margin:8px 0;">
+    <textarea name="message" placeholder="Your Message"  maxlength="500" pattern="^[a-zA-Z0-9 .,!?'\&quot;@#%&()\-_:;]+$" required style="width:100%; padding:8px; margin:8px 0;"></textarea>
+
+    <button type="submit" class="btn">Send</button>
+  </form>
+</div>
+</section>
+<script>
+  // Block common "save / view source / devtools" shortcuts (best-effort)
+  document.addEventListener('keydown', function(e) {
+    const key = (e.key || '').toLowerCase();
+
+    // Ctrl/Cmd + S (Save)
+    if ((e.ctrlKey || e.metaKey) && key === 's') {
+      e.preventDefault();
+      // optional feedback:
+      // alert('Saving the page is disabled on this site.');
+      return false;
+    }
+
+    // Ctrl/Cmd + U (View Source)
+    if ((e.ctrlKey || e.metaKey) && key === 'u') {
+      e.preventDefault();
+      return false;
+    }
+
+    // Ctrl/Cmd + Shift + I  / F12  (DevTools)
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && key === 'i') {
+      e.preventDefault();
+      return false;
+    }
+    if (e.key === 'F12') {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Optional: block right-click context menu (casual deterrent)
+  document.addEventListener('contextmenu', function(e) {
+    // comment out if you don't want to block right-click everywhere
+    e.preventDefault();
+    return false;
+  });
+</script>
+
 
 <!-- Footer -->
-<footer>
-  &copy; 2025 Balochistan Event Decor. All rights reserved.
+<footer class="footer">
+  <p>© 2025 Balochistan Event Decor | Designed by <a href="https://www.instagram.com/5hay_baloch/">Shayhaq</a></p>
 </footer>
 
 </body>
 </html>
-
