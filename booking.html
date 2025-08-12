@@ -43,6 +43,47 @@ nav a:hover {
 }
 
 
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+
+
+.back {
+  position: relative;
+  background: #000080 no-repeat center center/cover;
+  padding: 40px 20px;
+  text-align: center;
+  color: white;
+  z-index: 0; /* keep base level */
+}
+
+.back::before {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1; /* put overlay behind content */
+}
+
+.back > * {
+  position: relative; /* ensure text & boxes are above overlay */
+  z-index: 1;
+}
+
+
     .booking-section {
       padding: 60px 20px;
       text-align: center;
@@ -135,6 +176,34 @@ width: 100%;
 .footer a:hover {
   color: #ffd700;                /* Slightly brighter gold on hover */
 }
+
+.privacy-policy {
+    background-color: #ffffff; /* solid white */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 40px auto;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.privacy-policy h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.privacy-policy a {
+    color: #00008B; /* dark blue */
+    text-decoration: none;
+}
+
+.privacy-policy a:hover {
+    text-decoration: underline;
+}
+
+
     @media (max-width: 768px) {
      header {
     flex-direction: column;
@@ -181,8 +250,12 @@ width: 100%;
     </nav>
   </header>
 
+
+
   <section class="booking-section">
-     <h1>Balochistan Event Decor</h1>
+           
+
+          <h1>Balochistan Event Decor</h1>
 
     <form class="booking-form" action="https://formspree.io/f/xnnzzvze" method="POST">
       <input type="text" name="name" placeholder="Your Name" pattern="^[A-Za-z ]{1,60}$" title="Please enter a valid name: letters only" required>
@@ -244,7 +317,21 @@ width: 100%;
     return false;
   });
 </script>
-
+<div class=back>
+<div class="privacy-policy">
+    <h2>Privacy Policy</h2>
+    <p>
+        We value your privacy. The personal information you provide 
+        (such as your name, contact number, and event details) will only be used 
+        for booking and communication purposes. We will not share your information 
+        with third parties without your consent.
+    </p>
+    <p>
+        For any questions regarding your data, please contact us at +92 321 8547399
+        
+    </p>
+</div>
+</div>
 
   <footer class="footer">
     <p>© 2025 Balochistan Event Decor | Designed by <a href="https://www.instagram.com/5hay_baloch/">Shayhaq</a></p>
