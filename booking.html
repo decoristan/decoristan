@@ -14,29 +14,34 @@
     }
 
     header {
-      background-color: rgba(0, 0, 0, 0.8);
-      color: white;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
+  background-color: rgba(0, 0, 48, 0.88); /* Transparent navy blue */
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* moves nav to the right on desktop */
+  flex-wrap: wrap;
+}
+
 
     header h1 {
       font-size: 22px;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 15px;
-      font-weight: bold;
-    }
+    
+   nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+nav a:hover {
+  color: gold; /* goldish hover */
+  text-decoration: none;
+}
+
 
     .booking-section {
       padding: 60px 20px;
@@ -54,27 +59,23 @@
       z-index: 0;
     }
 
-.booking-section h2 {
+.booking-section h1 {
   font-size: 32px;
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
-  color: #000; /* core black text */
+  color: #000;
   text-shadow:
-    /* thin white highlight */
     -1px -1px 0 #fff,
     1px -1px 0 #fff,
     -1px 1px 0 #fff,
     1px 1px 0 #fff,
+    -2px -2px 0 #01003c,  /* Navy blue */
+    2px -2px 0 #01003c,
+    -2px 2px 0 #01003c,
+    2px 2px 0 #01003c,
+    0 0 8px #01003c; /* Navy blue glow */
 
-    /* thicker red outline */
-    -2px -2px 0 #ff0000,
-    2px -2px 0 #ff0000,
-    -2px 2px 0 #ff0000,
-    2px 2px 0 #ff0000,
-
-    /* soft red glow */
-    0 0 8px #ff0000;
 }
 
     .booking-form {
@@ -108,7 +109,7 @@ width: 100%;
 
 
     .booking-form button {
-      background: #000;
+       background-color:  #0d0a25;
       color: white;
       border: none;
       cursor: pointer;
@@ -125,24 +126,44 @@ width: 100%;
       background: rgba(0,0,0,0.85);
       color: white;
     }
-    @media (max-width: 480px) {
-    header {
-      flex-direction: column;
-      text-align: center;
-    }
+.footer a {
+  text-decoration: none;        /* Remove underline */
+  font-weight: bold;            /* Make bold */
+  color: #d4af37;               /* Gold-ish color */
+}
 
-    nav {
-      margin-top: 10px;
-    }
+.footer a:hover {
+  color: #ffd700;                /* Slightly brighter gold on hover */
+}
+    @media (max-width: 768px) {
+     header {
+    flex-direction: column;
+    text-align: center;
+    padding: 5px 10px; /* narrower header */
+  }
 
-    nav a {
-      display: inline-block;
-      margin: 5px 10px;
-    }
+  nav {
+    margin-top: 4px;
+  }
+
+  nav a {
+    display: inline-block;
+    font-size: 14px;
+    margin: 5px 10px;
+  }
 
     .booking-section h2 {
       font-size: 24px;
     }
+.footer {
+    font-size: 0.7rem; /* smaller text for mobile */
+  }
+
+   @media (max-width: 768px) {
+       
+    .booking-section h1 {
+  font-size: 20px;}
+
   }
 </style>
   </style>
@@ -152,8 +173,7 @@ width: 100%;
 
   <header>
 
-    <h1>Balochistan Event Decor</h1>
-    <nav>
+       <nav>
       <a href="index.html">Home</a>
       <a href="reels.html" class="btn">Reels</a>
       <a href="gallary.html">Gallery</a>
@@ -162,7 +182,8 @@ width: 100%;
   </header>
 
   <section class="booking-section">
-    <h2>Book Your Event</h2>
+     <h1>Balochistan Event Decor</h1>
+
     <form class="booking-form" action="https://formspree.io/f/xnnzzvze" method="POST">
       <input type="text" name="name" placeholder="Your Name" pattern="^[A-Za-z ]{1,60}$" title="Please enter a valid name: letters only" required>
       
@@ -183,12 +204,51 @@ width: 100%;
        </script>
       <input type="tel" name="contact_number" placeholder="Contact Number"  pattern="(\+92[0-9]{10}|0[0-9]{10})" title="Enter number like 03212345678 or +923212345678" required>
       
-      <button type="submit">Book Now</button>
+      <button type="submit" class="book1">Book Now</button>
     </form>
   </section>
+<script>
+  // Block common "save / view source / devtools" shortcuts (best-effort)
+  document.addEventListener('keydown', function(e) {
+    const key = (e.key || '').toLowerCase();
 
-  <footer>
-    &copy; 2025 Balochistan Event Decor. All rights reserved.
+    // Ctrl/Cmd + S (Save)
+    if ((e.ctrlKey || e.metaKey) && key === 's') {
+      e.preventDefault();
+      // optional feedback:
+      // alert('Saving the page is disabled on this site.');
+      return false;
+    }
+
+    // Ctrl/Cmd + U (View Source)
+    if ((e.ctrlKey || e.metaKey) && key === 'u') {
+      e.preventDefault();
+      return false;
+    }
+
+    // Ctrl/Cmd + Shift + I  / F12  (DevTools)
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && key === 'i') {
+      e.preventDefault();
+      return false;
+    }
+    if (e.key === 'F12') {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Optional: block right-click context menu (casual deterrent)
+  document.addEventListener('contextmenu', function(e) {
+    // comment out if you don't want to block right-click everywhere
+    e.preventDefault();
+    return false;
+  });
+</script>
+
+
+  <footer class="footer">
+    <p>© 2025 Balochistan Event Decor | Designed by <a href="https://www.instagram.com/5hay_baloch/">Shayhaq</a></p>
+
   </footer>
 
 </body>
