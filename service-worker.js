@@ -24,8 +24,10 @@ const urlsToCache = [
   "/security.js",
 
   // Icons (PWA manifest)
-  "/icons/icon-192.png",
-  "/icons/icon-512.png"
+  "/icons/android-chrome-192x192.png",
+  "/icons/android-chrome-512x512.png"
+  "/icons/favicon-16x16.png"
+ "/icons/favicon-32x32.png"
 ];
 
 // Install Service Worker
