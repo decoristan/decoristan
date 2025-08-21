@@ -1,6 +1,6 @@
-const CACHE_NAME = "my-site-cache-v1";
+const CACHE_NAME = "my-site-cache-v2";
 
-// Files to cache (add all your important assets here)
+// Files to cache
 const urlsToCache = [
   "/",                // Root
   "/index.html",
@@ -8,6 +8,7 @@ const urlsToCache = [
   "/reels.html",
   "/booking.html",
   "/gallary.html",
+  "/offline.html",    // Offline fallback page
 
   // CSS files
   "/index.css",
@@ -25,9 +26,9 @@ const urlsToCache = [
 
   // Icons (PWA manifest)
   "/icons/android-chrome-192x192.png",
-  "/icons/android-chrome-512x512.png"
-  "/icons/favicon-16x16.png"
- "/icons/favicon-32x32.png"
+  "/icons/android-chrome-512x512.png",
+  "/icons/favicon-16x16.png",
+  "/icons/favicon-32x32.png"
 ];
 
 // Install Service Worker
@@ -38,18 +39,22 @@ self.addEventListener("install", (event) => {
       return cache.addAll(urlsToCache);
     })
   );
+  self.skipWaiting();
 });
 
-// Fetch from cache first, then fallback to network
+// Fetch with offline fallback
 self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
+      return (
+        response ||
+        fetch(event.request).catch(() => caches.match("/offline.html"))
+      );
     })
   );
 });
 
-// Update cache when service worker is activated
+// Update cache on activate
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
@@ -63,4 +68,20 @@ self.addEventListener("activate", (event) => {
       );
     })
   );
+  self.clients.claim();
 });
+
+// Background Sync Example
+self.addEventListener("sync", (event) => {
+  if (event.tag === "sync-data") {
+    console.log("Background sync triggered!");
+    event.waitUntil(syncData());
+  }
+});
+
+// Dummy sync function (replace with real logic, e.g., retry form submissions)
+async function syncData() {
+  // Example: fetch pending requests from IndexedDB and send them to server
+  console.log("Syncing data in background...");
+  return Promise.resolve();
+}
